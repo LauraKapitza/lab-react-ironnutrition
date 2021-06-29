@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   margin: 0 auto;
-  width: 80%;
+  width: 60%;
 }
 
 h1 {
@@ -12,12 +12,4 @@ h1 {
 .flex-container {
   display: flex;
   justify-content: center;
-}
-
-.food-list {
-  margin: 0 auto;
-}
-
-.food-details {
-  flex-grow: 2;
 }

@@ -1,40 +1,36 @@
+import AddFood from './AddFood.js';
+import FoodItem from './FoodItem.js';
+import foodList from '../foods.json';
 import React from 'react';
 import 'bulma/css/bulma.css';
 
 
 class Foodbox extends React.Component {
+    state = {
+        food: foodList
+    }
+    
+    addFoodHandler = (newFood) => {
+        const _food = [...this.state.food]
+        _food.push(newFood)
+
+        this.setState({
+            food: _food
+        })
+    }
+    
     render() {
         return (
-            
-            <div className="box">
-            <article className="media">
-              <div className="media-left">
-                <figure className="image is-64x64">
-                  <img src={this.props.image} alt={this.props.name} />
-                </figure>
-              </div>
-              <div className="media-content">
-                <div className="content">
-                  <p>
-                    <strong>{this.props.name}</strong> <br />
-                    <small>{this.props.calories} cal</small>
-                  </p>
-                </div>
-              </div>
-              <div className="media-right">
-                <div className="field has-addons">
-                  <div className="control">
-                    <input className="input" type="number" value="1" />
-                  </div>
-                  <div className="control">
-                    <button className="button is-info">
-                      +
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </article>
-          </div> 
+
+            <section>
+                <AddFood addTheFood={this.addFoodHandler} />
+                {
+                    this.state.food.map(item => {
+                        return <FoodItem key={item.name} {...item} />
+                    })
+                }
+            </section>
+
         )
     }
 }
