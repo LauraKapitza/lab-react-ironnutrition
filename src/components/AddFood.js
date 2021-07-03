@@ -7,7 +7,7 @@ class AddFood extends React.Component {
             name: "",
             calories: 0,
             image: "",
-            quantity: 0
+            quantity: 1
         }
     }
     
